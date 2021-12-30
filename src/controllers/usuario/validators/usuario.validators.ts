@@ -1,8 +1,12 @@
+import { Injectable } from "@nestjs/common";
 import { registerDecorator, ValidationArguments, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface } from "class-validator";
 import { UsuarioService } from "../usuario.service";
 
+@Injectable()
 @ValidatorConstraint()
-class IsUserNameConstraint implements ValidatorConstraintInterface {
+
+export class IsUserNameConstraint implements ValidatorConstraintInterface {
+
     constructor(private usuarioService: UsuarioService){}
 
     validate(name: string, validationArguments?: ValidationArguments): boolean | Promise<boolean> {

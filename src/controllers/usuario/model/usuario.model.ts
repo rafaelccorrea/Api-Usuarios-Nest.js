@@ -1,3 +1,4 @@
+import { Exclude } from "class-transformer";
 import { IsEmail, IsNotEmpty, IsString } from "class-validator";
 import { IsUserName } from "../validators/usuario.validators";
 
@@ -17,9 +18,14 @@ export class Usuario {
     @IsEmail()
     email: string;
 
+    @Exclude({
+        toPlainOnly: true
+    })
     @IsNotEmpty({
         message: 'Senha obrigatoria'
-    })
+    }) 
     password: string;
+
+
     dataInitial: Date;
 }
