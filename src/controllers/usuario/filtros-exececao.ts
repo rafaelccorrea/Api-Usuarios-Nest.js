@@ -24,6 +24,7 @@ export class FiltroExcessao implements ExceptionFilter{
             body: {
                 statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
                 timestamp: new Date().toISOString(),
+                message: exception.message,
                 path: requisicao.path
             }
         };
